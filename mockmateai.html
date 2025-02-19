@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MockMateAI - Coming Soon</title>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #0033a0, #0055dd);
+        color: white;
+        text-align: center;
+      }
+      .container {
+        max-width: 650px;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(8px);
+        animation: fadeIn 1s ease-in-out;
+      }
+      h1 {
+        font-size: 2.8em;
+        font-weight: 700;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+      }
+      .icon {
+        font-size: 3.5em;
+        margin-bottom: 15px;
+        animation: bounce 1.5s infinite;
+      }
+      p {
+        font-size: 1.3em;
+        opacity: 0.9;
+        margin-bottom: 25px;
+        font-weight: 400;
+      }
+      .btn {
+        display: inline-block;
+        padding: 14px 24px;
+        background-color: white;
+        color: #0033a0;
+        font-size: 1.2em;
+        font-weight: bold;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: 0.3s ease-in-out;
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+      }
+      .btn:hover {
+        background-color: #f0f0f0;
+        transform: translateY(-2px);
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <i class="fas fa-tools icon"></i>
+      <h1>MockMateAI - Your AI Interview Partner</h1>
+      <p>
+        Our AI-powered interview system is currently under development. Stay
+        tuned for exciting updates!
+      </p>
+      <a href="index.html" class="btn">Go to Portfolio</a>
+    </div>
+  </body>
+</html>
