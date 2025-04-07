@@ -22,6 +22,13 @@
           <li><a href="#about">About</a></li>
         </ul>
       </nav>
+      <button
+        id="darkModeToggle"
+        class="dark-mode-btn"
+        aria-label="Toggle Dark Mode"
+      >
+        🌙
+      </button>
     </header>
 
     <section class="hero">
@@ -245,5 +252,14 @@
     <footer>
       <p>&copy; 2025 Hardik Thakor. All rights reserved.</p>
     </footer>
+    <script>
+      const toggleBtn = document.getElementById("darkModeToggle");
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        toggleBtn.textContent = document.body.classList.contains("dark")
+          ? "🌞"
+          : "🌙";
+      });
+    </script>
   </body>
 </html>

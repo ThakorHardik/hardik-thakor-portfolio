@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MockMateAI - Coming Soon</title>
+    <title>MockMateAI - Project Completed</title>
     <script
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
       * {
         margin: 0;
@@ -23,36 +24,40 @@
         background: linear-gradient(135deg, #0033a0, #0055dd);
         color: white;
         text-align: center;
+        overflow: hidden;
       }
       .container {
-        max-width: 650px;
+        max-width: 700px;
         padding: 30px;
         background: rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        border-radius: 16px;
+        box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
         backdrop-filter: blur(8px);
         animation: fadeIn 1s ease-in-out;
+        z-index: 1;
+        position: relative;
       }
       h1 {
-        font-size: 2.8em;
+        font-size: 3em;
         font-weight: 700;
         margin-bottom: 10px;
         letter-spacing: 1px;
       }
       .icon {
-        font-size: 3.5em;
+        font-size: 3.8em;
         margin-bottom: 15px;
         animation: bounce 1.5s infinite;
+        color: #ffdd57;
       }
       p {
         font-size: 1.3em;
-        opacity: 0.9;
+        opacity: 0.95;
         margin-bottom: 25px;
         font-weight: 400;
       }
       .btn {
         display: inline-block;
-        padding: 14px 24px;
+        padding: 14px 28px;
         background-color: white;
         color: #0033a0;
         font-size: 1.2em;
@@ -61,10 +66,20 @@
         text-decoration: none;
         transition: 0.3s ease-in-out;
         box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        margin: 10px;
       }
       .btn:hover {
         background-color: #f0f0f0;
         transform: translateY(-2px);
+      }
+      canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
       }
       @keyframes fadeIn {
         from {
@@ -88,14 +103,125 @@
     </style>
   </head>
   <body>
+    <canvas id="fireworks"></canvas>
     <div class="container">
-      <i class="fas fa-tools icon"></i>
-      <h1>MockMateAI - Your AI Interview Partner</h1>
-      <p>
-        Our AI-powered interview system is currently under development. Stay
-        tuned for exciting updates!
-      </p>
+      <i class="fas fa-check-circle icon"></i>
+      <h1>MockMateAI Project Completed 🎉</h1>
+      <p>Congratulations Our AI interview system is ready to shine</p>
+      <a
+        href="https://your-mockmateai-project-link.com"
+        target="_blank"
+        class="btn"
+        >See Live Project</a
+      >
       <a href="index.html" class="btn">Go to Portfolio</a>
     </div>
+
+    <script>
+      // Confetti Celebration
+      const end = Date.now() + 3 * 1000;
+      const colors = ["#ffffff", "#ffdd57", "#00e1ff", "#ff2d95"];
+
+      (function frame() {
+        confetti({
+          particleCount: 4,
+          angle: 60,
+          spread: 80,
+          origin: { x: 0 },
+          colors: colors,
+        });
+        confetti({
+          particleCount: 4,
+          angle: 120,
+          spread: 80,
+          origin: { x: 1 },
+          colors: colors,
+        });
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
+
+      // Fireworks Effect
+      const canvas = document.getElementById("fireworks");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      function random(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      class Firework {
+        constructor() {
+          this.x = random(0, canvas.width);
+          this.y = canvas.height;
+          this.targetY = random(canvas.height / 4, canvas.height / 2);
+          this.speed = random(5, 10);
+          this.color = `hsl(${random(0, 360)}, 100%, 70%)`;
+        }
+
+        update() {
+          this.y -= this.speed;
+          if (this.y <= this.targetY) {
+            explode(this.x, this.y, this.color);
+            return false;
+          }
+          drawCircle(this.x, this.y, 3, this.color);
+          return true;
+        }
+      }
+
+      let fireworks = [];
+
+      function explode(x, y, color) {
+        for (let i = 0; i < 20; i++) {
+          particles.push({
+            x,
+            y,
+            angle: random(0, 2 * Math.PI),
+            speed: random(2, 5),
+            life: 50,
+            color,
+          });
+        }
+      }
+
+      function drawCircle(x, y, radius, color) {
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.fill();
+      }
+
+      let particles = [];
+
+      function animateFireworks() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        fireworks = fireworks.filter((f) => f.update());
+
+        particles = particles.filter((p) => {
+          p.x += Math.cos(p.angle) * p.speed;
+          p.y += Math.sin(p.angle) * p.speed;
+          p.life--;
+          drawCircle(p.x, p.y, 2, p.color);
+          return p.life > 0;
+        });
+
+        if (Math.random() < 0.05) {
+          fireworks.push(new Firework());
+        }
+
+        requestAnimationFrame(animateFireworks);
+      }
+
+      animateFireworks();
+
+      window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    </script>
   </body>
 </html>

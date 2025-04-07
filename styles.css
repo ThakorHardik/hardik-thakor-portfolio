@@ -492,3 +492,69 @@ footer {
 .fullscreen.active {
   display: flex;
 }
+
+.dark-mode-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+  margin-left: auto;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.dark-mode-btn:hover {
+  transform: scale(1.2);
+}
+
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark header,
+body.dark footer {
+  background-color: #1f1f1f;
+  color: #fff;
+}
+
+body.dark nav a {
+  color: #ffffff;
+}
+
+body.dark nav a:hover {
+  color: #ffb81c;
+}
+
+body.dark .hero h1,
+body.dark #skills h2,
+body.dark #projects h2,
+body.dark #contact h2,
+body.dark #about h2 {
+  color: #ffb81c;
+}
+
+body.dark .skill-item,
+body.dark .project,
+body.dark #about,
+body.dark #contact {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+body.dark .btn {
+  background-color: #ffb81c;
+  color: #000;
+}
+
+body.dark .btn:hover {
+  background-color: #ffffff;
+  color: #007bff;
+}
+
+body.dark .project-description,
+body.dark #contact p,
+body.dark #about p {
+  color: #ccc;
+}
