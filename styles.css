@@ -558,3 +558,57 @@ body.dark #contact p,
 body.dark #about p {
   color: #ccc;
 }
+
+/* new */
+.typed-text {
+  font-weight: bold;
+  color: #1e90ff; /* change color as you like */
+}
+
+/* Base nav hidden on small screens */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #222;
+    padding: 20px 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav.show {
+    display: block;
+  }
+
+  header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px;
+  }
+}

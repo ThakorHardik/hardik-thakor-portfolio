@@ -14,7 +14,7 @@
   <body>
     <header>
       <h2><span class="logo">Hardik Thakor</span></h2>
-      <nav>
+      <!-- <nav>
         <ul>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
@@ -28,13 +28,34 @@
         aria-label="Toggle Dark Mode"
       >
         🌙
+      </button> -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+        &#9776;
+      </button>
+
+      <nav id="navMenu">
+        <ul>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+
+      <button
+        id="darkModeToggle"
+        class="dark-mode-btn"
+        aria-label="Toggle Dark Mode"
+      >
+        🌙
       </button>
     </header>
 
     <section class="hero">
       <div class="hero-content">
         <h1>Hey, I'm <span>Hardik</span></h1>
-        <p>A Passionate Developer & Problem Solver</p>
+        <p>A Passionate : <span id="typed" class="typed-text"></span></p>
+
         <a href="#contact" class="btn">Get in Touch</a>
       </div>
       <div class="profile-img-container">
@@ -259,6 +280,34 @@
         toggleBtn.textContent = document.body.classList.contains("dark")
           ? "🌞"
           : "🌙";
+      });
+
+      // Toggle mobile menu
+      const menuToggle = document.getElementById("menuToggle");
+      const navMenu = document.getElementById("navMenu");
+
+      menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!-- new -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+      var typed = new Typed("#typed", {
+        strings: [
+          "Developer",
+          "Problem Solver",
+          "Tech Enthusiast",
+          "AI Learner",
+          "Full Stack Explorer",
+        ],
+        typeSpeed: 60,
+        backSpeed: 40,
+        backDelay: 1500,
+        loop: true,
+        showCursor: true,
       });
     </script>
   </body>
