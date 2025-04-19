@@ -1,0 +1,138 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonts */
+body {
+  font-family: Arial, sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Header */
+.header {
+  background: #007bff;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.dark-mode-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Container */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px;
+  gap: 40px;
+  align-items: center;
+  margin-top: 3%;
+}
+
+/* Form */
+.contact-form {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adjust the space between fields here */
+}
+
+.contact-form h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.contact-form textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 5%;
+  /* margin-left: 0%; */
+  align-self: center;
+}
+
+.submit-btn:hover {
+  background-color: #ffb81c;
+  transform: scale(1.05);
+}
+
+/* Image Section */
+.contact-image {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.contact-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #121212;
+  color: white;
+}
+
+body.dark .header {
+  background: #1f1f1f;
+}
+
+body.dark .logo,
+body.dark .dark-mode-btn {
+  color: white;
+}
+
+body.dark .contact-form input,
+body.dark .contact-form textarea {
+  background: #1f1f1f;
+  color: white;
+  border: 1px solid #444;
+}
+
+body.dark .submit-btn {
+  background: #333;
+  color: white;
+}
