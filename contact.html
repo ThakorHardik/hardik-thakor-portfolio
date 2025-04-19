@@ -26,7 +26,23 @@
         <form
           action="https://formsubmit.co/d09d3ac6a6b4c60d5c9cff07812b4c27"
           method="POST"
+          id="contactForm"
         >
+          <!-- ✅ Hidden fields -->
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input
+            type="hidden"
+            name="_subject"
+            value="New message from Portfolio"
+          />
+          <input
+            type="hidden"
+            name="_autoresponse"
+            value="Thanks for contacting me! I'll get back to you shortly."
+          />
+
+          <!-- Regular fields -->
           <input type="email" name="email" placeholder="Your Email" required />
           <input type="text" name="name" placeholder="Your Name" required />
           <input type="text" name="subject" placeholder="Subject" />
@@ -36,6 +52,14 @@
       </div>
       <div class="contact-image">
         <img src="mail1.svg" alt="Contact Illustration" />
+      </div>
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <img src="assets/thankyou.png" alt="Thank You" class="popup-img" />
+          <h3>Thank you!</h3>
+          <p>Your message has been sent. I’ll get back to you soon.</p>
+          <button onclick="closePopup()">Close</button>
+        </div>
       </div>
     </section>
 
@@ -47,6 +71,37 @@
         body.classList.toggle("dark");
         toggle.textContent = body.classList.contains("dark") ? "☀️" : "🌙";
       });
+    </script>
+
+    <script>
+      const form = document.getElementById("contactForm");
+      const popup = document.getElementById("popup");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent redirect
+
+        const formData = new FormData(form);
+        fetch("https://formsubmit.co/d09d3ac6a6b4c60d5c9cff07812b4c27", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => {
+            if (response.ok) {
+              popup.style.display = "block";
+              form.reset();
+            } else {
+              alert("Something went wrong. Try again later!");
+            }
+          })
+          .catch((error) => {
+            alert("Error sending message.");
+            console.error(error);
+          });
+      });
+
+      function closePopup() {
+        popup.style.display = "none";
+      }
     </script>
   </body>
 </html>
