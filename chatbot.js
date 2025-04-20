@@ -6,7 +6,7 @@ const chatMessages = document.getElementById("chatMessages");
 
 // 🔑 OpenRouter API Key
 const OPENROUTER_API_KEY =
-  "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"; // Replace with your actual key
+  "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"; // Replace with your actual key
 
 toggleBtn.onclick = () => {
   chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex";
@@ -85,6 +85,7 @@ Avoid answering anything not related to Hardik Thakor. Stay focused, friendly, a
     );
 
     const data = await response.json();
+    console.log("🧠 API Raw Response:", JSON.stringify(data, null, 2));
     const reply =
       data.choices?.[0]?.message?.content || "Sorry, I didn't understand that.";
     return reply;
