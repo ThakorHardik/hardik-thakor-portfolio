@@ -1,0 +1,129 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>You Are Offline</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #f0f0f0;
+        text-align: center;
+        padding: 50px;
+      }
+      h1 {
+        color: #ff5252;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>😢 You Are Offline</h1>
+    <p>Please check your internet connection and try again.</p>
+    <script>
+      window.addEventListener("online", () => {
+        window.location.href = "/index.html";
+      });
+    </script>
+  </body>
+</html>
+
+
+
+
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>You're Offline</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f0f2f5;
+        color: #333;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 400px;
+      }
+
+      .icon {
+        font-size: 80px;
+        margin-bottom: 20px;
+        color: #ff6b6b;
+        animation: pulse 1.5s infinite;
+      }
+
+      h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: #555;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+
+      .btn:hover {
+        background-color: #0056b3;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.7;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="icon">📡</div>
+      <h1>You're Offline</h1>
+      <p>
+        A internet connection check kri ne aay jaaaa.<br />na aavtu hoy to
+        reacherge jo.
+      </p>
+      <a href="/" class="btn">Try Again</a>
+    </div>
+
+    <script>
+      window.addEventListener("online", () => {
+        window.location.href = "/";
+      });
+    </script>
+  </body>
+</html>

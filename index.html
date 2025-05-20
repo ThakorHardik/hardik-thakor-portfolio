@@ -329,5 +329,21 @@
         showCursor: true,
       });
     </script>
+
+    <script>
+      function checkConnection() {
+        if (!navigator.onLine) {
+          window.location.href = "/offline.html"; // your custom offline page
+        }
+      }
+
+      // Check immediately
+      checkConnection();
+
+      // Also listen for future disconnections
+      window.addEventListener("offline", () => {
+        checkConnection();
+      });
+    </script>
   </body>
 </html>
